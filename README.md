@@ -6,17 +6,17 @@ My personal site: who I am, what I've done, and three projects I've built end to
 
 ## What it is
 
-A single static page (`index.html` + `style.css` + `app.js`), no framework, no build step, no backend. It exists so I have one link to put on applications and my résumé that shows real work instead of just describing it.
+A single static page (`index.html` + `style.css` + `app.js`), no framework, no build step, no backend. It exists so I have one link to put on applications and my resume that shows real work instead of just describing it.
 
 ## Sections
 
-- **About** and **beyond the résumé** — background and the parts of my life that don't fit on a résumé.
+- **About** and **beyond the resume** — background and the parts of my life that don't fit on a resume.
 - **Experience** — internships at Procter & Gamble, PortfolioPilot, and RPS.
 - **Projects** — three things I built this fall:
   - [AI Internship-Fit Screener](https://github.com/aadarsh05-dev/internship-fit-eval) — an eval harness that raised a scoring rubric's agreement with human judgment from 46% to 82%.
   - [Fantasy Draft Value Board](https://ff-value-board.vercel.app) — a live fantasy football draft tool over a transparent value model, backtested honestly against a naive baseline.
   - [Crypto Strategy Backtest & Product Brief](https://github.com/aadarsh05-dev/crypto-strategy-lab) — a fee-aware backtest showing buy-and-hold beat automated strategies in 5 of 6 cases, written up as a product brief.
-- **Leadership**, **skills**, and a **résumé** download.
+- **Leadership**, **skills**, and a **resume** download.
 
 ## Why a static page
 

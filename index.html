@@ -4,14 +4,17 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Aadarsh Arun</title>
-<meta name="description" content="Aadarsh Arun — Industrial Engineering student at the University of Illinois. Product, strategy, and a few things I've built end to end.">
+<meta name="description" content="Aadarsh Arun, Industrial Engineering student at the University of Illinois. Product, strategy, and a few things I've built end to end.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <header class="site-header">
   <div class="wrap header-inner">
-    <a href="#hero" class="brand">Aadarsh Arun</a>
+    <a href="#hero" class="brand">Aadarsh Arun<span>.</span></a>
     <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">
       <span></span><span></span><span></span>
     </button>
@@ -21,7 +24,7 @@
       <a href="#projects">Projects</a>
       <a href="#leadership">Leadership</a>
       <a href="#skills">Skills</a>
-      <a href="#resume">Résumé</a>
+      <a href="#resume">Resume</a>
       <a href="#contact">Contact</a>
     </nav>
   </div>
@@ -32,13 +35,14 @@
   <section id="hero" class="hero">
     <div class="wrap hero-inner">
       <div class="hero-photo">
-        <img class="avatar-photo" src="assets/headshot.jpg" alt="Aadarsh Arun" width="128" height="128">
+        <img class="avatar-photo" src="assets/headshot.jpg" alt="Aadarsh Arun" width="156" height="156">
       </div>
       <div class="hero-text">
+        <a class="now-pill" href="#bot"><span class="pulse"></span><span>Now building: <strong>an automated prediction market bot</strong></span></a>
         <h1>Aadarsh Arun</h1>
         <p class="hero-tagline">Industrial engineering student at the University of Illinois, recruiting for product and strategy roles. I build things end to end, and I'm upfront about where they still fall short.</p>
         <div class="hero-links">
-          <a class="btn btn-primary" href="resume/aadarsh-arun-resume.pdf" target="_blank" rel="noopener">Download résumé</a>
+          <a class="btn btn-primary" href="resume/aadarsh-arun-resume.pdf" target="_blank" rel="noopener">Download resume</a>
           <a class="btn" href="mailto:aadarsh3@illinois.edu">Email</a>
           <a class="btn" href="https://linkedin.com/in/aadarsh-arun" target="_blank" rel="noopener">LinkedIn</a>
           <a class="btn" href="https://github.com/aadarsh05-dev" target="_blank" rel="noopener">GitHub</a>
@@ -59,7 +63,7 @@
 
   <section id="beyond" class="section section-muted">
     <div class="wrap">
-      <h2>Beyond the résumé</h2>
+      <h2>Beyond the resume</h2>
       <div class="prose">
         <p>Outside of class and work: I'm a lifelong Chicago Bears fan, I play pickleball, and I'm always up for a game of Catan or Codenames. I used to take an analytical look at sports investing markets, focused on positive-EV and arbitrage strategies, and I try to keep a regular lifting schedule. This past year I've also spent a lot of time building side projects on my own, partly for the work below and partly because I like learning a tool well enough to find its edges.</p>
       </div>
@@ -114,9 +118,50 @@
   <section id="projects" class="section section-muted">
     <div class="wrap">
       <h2>Projects</h2>
-      <p class="section-lede">Three things I built this fall, each with a real result attached, including the ones that didn't go the way I expected.</p>
+      <p class="section-lede">What I'm building right now, plus three things I shipped this fall, each with a real result attached, including the ones that didn't go the way I expected.</p>
 
       <div class="project-grid">
+
+        <article class="project-card project-featured" id="bot">
+          <span class="status-badge"><span class="pulse"></span>In progress &middot; started Sep 2026</span>
+          <h3>Automated Prediction Market Bot</h3>
+          <p class="project-hook">A bot that trades Kalshi prediction markets on its own. The goal is a strategy that still makes money after fees, and the rule is that nothing touches real money until it has earned it in testing.</p>
+          <p>I'm following Miles Deutscher's published process for building an AI trading bot and adapting it from crypto exchanges to Kalshi. Claude handles the slow thinking (designing and testing strategies), and a fast decision model makes the second-by-second calls.</p>
+
+          <p class="subhead">The process</p>
+          <ol class="stages">
+            <li class="stage done"><strong>Laptop setup</strong><span>Ported the starter bot to Kalshi and dry-ran it on live prices.</span><em>Done</em></li>
+            <li class="stage now"><strong>Backtest engine</strong><span>Finding data and tools to replay past markets with real fees.</span><em>Now</em></li>
+            <li class="stage"><strong>Strategy hunt</strong><span>Test many ideas, keep the ones that survive fees and unseen data.</span><em>Next</em></li>
+            <li class="stage"><strong>Forward test</strong><span>Weeks on live prices with simulated fills.</span><em>Planned</em></li>
+            <li class="stage"><strong>Always-on server</strong><span>Move from my laptop to a server running 24/7.</span><em>Planned</em></li>
+            <li class="stage"><strong>Small real money</strong><span>A separate go/no-go call, with tight limits.</span><em>Planned</em></li>
+          </ol>
+
+          <div class="featured-cols">
+            <div>
+              <p class="subhead">What I've built</p>
+              <ul>
+                <li>Ported an open-source crypto trading bot to Kalshi's API: request signing, hourly market rollover, Kalshi's fee formula, and paper fills that only count contracts that actually traded at my price.</li>
+                <li>Ran three dry runs on live Kalshi prices and checked the simulated fills against Kalshi's public trade record.</li>
+                <li>Tested the kill switch: it halts the bot and closes the position in 0.16 seconds.</li>
+              </ul>
+            </div>
+            <div>
+              <p class="subhead">What I've learned so far</p>
+              <ul>
+                <li>The starter's risk limits don't fit prediction markets. A 3-cent move on a 50-cent contract is a 6% swing, and the first dry run hit its daily loss limit in about a minute.</li>
+                <li>The last 10-15 minutes before an hourly market closes are chaotic, so exiting 5 minutes before the close is too late.</li>
+                <li>Went through Kalshi's free historical data (14,500+ series across 20 categories) and code-reviewed two open-source backtesters. Neither passed: wrong fee model, positions never settled at $1 or $0, and real bid/ask prices ignored.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="project-tags">
+            <span>Python</span><span>Kalshi API</span><span>backtesting</span><span>AI agents</span>
+          </div>
+          <p class="project-note">Code is private while it's in development.</p>
+        </article>
 
         <article class="project-card">
           <h3>AI Internship-Fit Screener</h3>
@@ -236,15 +281,15 @@
       <div class="skills-grid">
         <div class="skills-group">
           <h3>Product &amp; analytics</h3>
-          <p>Tableau, Power BI, Figma, Magic Patterns, Microsoft Office, Jira, Agile Methodology</p>
+          <div class="chips"><span>Tableau</span><span>Power BI</span><span>Figma</span><span>Magic Patterns</span><span>Microsoft Office</span><span>Jira</span><span>Agile Methodology</span></div>
         </div>
         <div class="skills-group">
           <h3>Engineering</h3>
-          <p>Python, Java, SQL, Vercel</p>
+          <div class="chips"><span>Python</span><span>Java</span><span>SQL</span><span>Vercel</span></div>
         </div>
         <div class="skills-group">
           <h3>Certifications</h3>
-          <p>Six Sigma Green Belt, Bloomberg Market Concepts</p>
+          <div class="chips"><span>Six Sigma Green Belt</span><span>Bloomberg Market Concepts</span></div>
         </div>
       </div>
     </div>
@@ -252,9 +297,11 @@
 
   <section id="resume" class="section resume-section">
     <div class="wrap">
-      <h2>Résumé</h2>
-      <p>This is the résumé I'm currently using for internship applications.</p>
-      <a class="btn btn-primary" href="resume/aadarsh-arun-resume.pdf" target="_blank" rel="noopener">Download résumé (PDF)</a>
+      <div>
+        <h2>Resume</h2>
+        <p>The resume I'm currently using for internship applications.</p>
+      </div>
+      <a class="btn btn-primary" href="resume/aadarsh-arun-resume.pdf" target="_blank" rel="noopener">Download resume (PDF)</a>
     </div>
   </section>
 
