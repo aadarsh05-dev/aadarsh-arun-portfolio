@@ -10,6 +10,7 @@
   --accent: #e8622c;
   --accent-soft: rgba(232, 98, 44, 0.12);
   --good: #1f8a5b;
+  --blue: #6f9cff;
   --max-width: 980px;
   --radius: 14px;
   --font-body: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
@@ -200,7 +201,7 @@ li::marker { color: var(--accent); }
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background: #6f9cff;
+  background: var(--blue);
   flex: 0 0 auto;
 }
 .now-pill:hover { text-decoration: none; border-color: var(--accent); }
@@ -266,6 +267,88 @@ li::marker { color: var(--accent); }
 .prose { max-width: 660px; }
 .prose p { font-size: 1.04rem; }
 
+/* Right now */
+.now-section { padding-bottom: 32px; }
+.now-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+.now-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 26px 26px 22px;
+  border-radius: var(--radius);
+  color: #fff;
+  background: var(--ink);
+  border: 1px solid var(--ink);
+  overflow: hidden;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+.now-card:hover {
+  text-decoration: none;
+  transform: translateY(-3px);
+  box-shadow: 0 16px 36px -18px rgba(10, 20, 40, 0.5);
+}
+.now-role {
+  background: radial-gradient(ellipse 70% 70% at 100% 0%, rgba(111, 156, 255, 0.3), transparent 60%), var(--ink);
+}
+.now-role:hover { border-color: var(--blue); }
+.now-build {
+  background: radial-gradient(ellipse 70% 70% at 100% 0%, rgba(232, 98, 44, 0.28), transparent 60%), var(--ink);
+}
+.now-build:hover { border-color: var(--accent); }
+.now-card h3 { color: #fff; font-size: 1.35rem; margin-top: 14px; }
+.now-card p { color: rgba(255, 255, 255, 0.72); font-size: 0.95rem; }
+.now-card .now-org {
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 0.86rem;
+  margin-bottom: 14px;
+}
+.now-label {
+  align-self: flex-start;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 4px 12px;
+  border-radius: 999px;
+}
+.now-role .now-label { color: var(--blue); background: rgba(111, 156, 255, 0.14); border: 1px solid rgba(111, 156, 255, 0.4); }
+.now-build .now-label { color: var(--accent); background: var(--accent-soft); border: 1px solid rgba(232, 98, 44, 0.4); }
+.now-link {
+  margin-top: auto;
+  padding-top: 10px;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+.now-role .now-link { color: var(--blue); }
+.now-build .now-link { color: var(--accent); }
+
+.mini-stages {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 5px;
+  margin-top: 4px;
+}
+.mini-stages span {
+  height: 6px;
+  border-radius: 3px;
+  background: rgba(255, 255, 255, 0.12);
+}
+.mini-stages .done { background: #4fd69b; }
+.mini-stages .now { background: var(--accent); }
+.mini-caption {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: rgba(255, 255, 255, 0.5);
+  margin: 8px 0 4px;
+}
+
 /* Timeline */
 .timeline {
   position: relative;
@@ -297,6 +380,38 @@ li::marker { color: var(--accent); }
   border: 2px solid var(--accent);
 }
 .timeline-heading { margin-bottom: 10px; }
+
+/* Current role stands out in the timeline */
+.timeline-current {
+  margin-left: -16px;
+  padding: 20px 20px 22px 16px;
+  margin-bottom: 36px;
+  border-radius: var(--radius);
+  background: var(--surface);
+  border: 1px solid rgba(111, 156, 255, 0.55);
+  box-shadow: 0 0 0 4px rgba(111, 156, 255, 0.1);
+}
+.timeline-current::before {
+  left: -12px;
+  top: 26px;
+  background: var(--blue);
+  border-color: var(--blue);
+  box-shadow: 0 0 0 5px rgba(111, 156, 255, 0.25);
+}
+.current-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #3d6fe0;
+  background: rgba(111, 156, 255, 0.14);
+  padding: 3px 10px;
+  border-radius: 999px;
+  margin-bottom: 10px;
+}
 .timeline-org, .timeline-date {
   display: inline-block;
   font-size: 0.88rem;
@@ -600,5 +715,8 @@ li::marker { color: var(--accent); }
   .stages { grid-template-columns: 1fr 1fr; }
   .featured-cols { grid-template-columns: 1fr; }
   .leadership-grid { grid-template-columns: 1fr; }
+  .now-grid { grid-template-columns: 1fr; }
+  .timeline-current { margin-left: -8px; padding-left: 12px; }
+  .timeline-current::before { left: -20px; }
   .skills-grid { grid-template-columns: 1fr; }
 }
