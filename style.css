@@ -189,6 +189,20 @@ li::marker { color: var(--accent); }
   color: rgba(255, 255, 255, 0.9);
   font-size: 0.86rem;
 }
+.now-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 18px;
+}
+.now-pills .now-pill { margin-bottom: 0; }
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #6f9cff;
+  flex: 0 0 auto;
+}
 .now-pill:hover { text-decoration: none; border-color: var(--accent); }
 .now-pill strong { color: #fff; font-weight: 600; }
 
@@ -579,7 +593,7 @@ li::marker { color: var(--accent); }
   .site-nav.open { display: flex; }
   .hero { padding-top: 120px; padding-bottom: 64px; }
   .hero-inner { flex-direction: column; text-align: center; gap: 28px; }
-  .hero-links { justify-content: center; }
+  .hero-links, .now-pills { justify-content: center; }
   .section { padding: 60px 0; }
   .timeline-date { float: none; display: block; }
   .project-card, .project-featured { padding: 22px; }

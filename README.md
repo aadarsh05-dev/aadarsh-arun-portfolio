@@ -2,7 +2,7 @@
 
 My personal site: who I am, what I've done, and three projects I've built end to end.
 
-**Live:** _add after first Vercel deploy_
+**Live:** https://aadarsh-arun-portfolio.vercel.app
 
 ## What it is
 
