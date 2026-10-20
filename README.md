@@ -1,6 +1,6 @@
 # aadarsh-arun-portfolio
 
-My personal site: who I am, what I've done, and three projects I've built end to end.
+My personal site: who I am, what I've done, and the projects I've built.
 
 **Live:** https://aadarsh-arun-portfolio.vercel.app
 
@@ -12,10 +12,9 @@ A single static page (`index.html` + `style.css` + `app.js`), no framework, no b
 
 - **About** and **beyond the resume** — background and the parts of my life that don't fit on a resume.
 - **Experience** — internships at Procter & Gamble, PortfolioPilot, and RPS.
-- **Projects** — three things I built this fall:
+- **Projects** — an in-progress Kalshi prediction market bot, plus two things I built this fall:
   - [AI Internship-Fit Screener](https://github.com/aadarsh05-dev/internship-fit-eval) — an eval harness that raised a scoring rubric's agreement with human judgment from 46% to 82%.
   - [Fantasy Draft Value Board](https://ff-value-board.vercel.app) — a live fantasy football draft tool over a transparent value model, backtested honestly against a naive baseline.
-  - [Crypto Strategy Backtest & Product Brief](https://github.com/aadarsh05-dev/crypto-strategy-lab) — a fee-aware backtest showing buy-and-hold beat automated strategies in 5 of 6 cases, written up as a product brief.
 - **Leadership**, **skills**, and a **resume** download.
 
 ## Why a static page

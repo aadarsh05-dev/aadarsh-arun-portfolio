@@ -7,19 +7,24 @@
 <meta name="description" content="Aadarsh Arun, Industrial Engineering student at the University of Illinois. Product, strategy, and a few things I've built end to end.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
+<script>
+  // Light by default; dark only if the visitor picked it. Runs before first paint so there's no flash.
+  (function () {
+    var saved = null;
+    try { saved = localStorage.getItem('theme'); } catch (e) {}
+    document.documentElement.setAttribute('data-theme', saved === 'dark' ? 'dark' : 'light');
+  })();
+</script>
 </head>
 <body>
 
 <header class="site-header">
   <div class="wrap header-inner">
-    <a href="#hero" class="brand">Aadarsh Arun<span>.</span></a>
-    <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">
-      <span></span><span></span><span></span>
-    </button>
+    <a href="#hero" class="brand">Aadarsh Arun</a>
     <nav class="site-nav" id="siteNav">
-      <a href="#about">About</a>
+      <a href="#about">Story</a>
       <a href="#experience">Experience</a>
       <a href="#projects">Projects</a>
       <a href="#leadership">Leadership</a>
@@ -27,6 +32,12 @@
       <a href="#resume">Resume</a>
       <a href="#contact">Contact</a>
     </nav>
+    <button class="theme-toggle" id="themeToggle" type="button" aria-label="Switch color theme">
+      <span class="theme-toggle-light">Light</span><span class="theme-toggle-sep">/</span><span class="theme-toggle-dark">Dark</span>
+    </button>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
   </div>
 </header>
 
@@ -38,12 +49,19 @@
         <img class="avatar-photo" src="assets/headshot.jpg" alt="Aadarsh Arun" width="156" height="156">
       </div>
       <div class="hero-text">
-        <div class="now-pills">
-          <a class="now-pill" href="#experience"><span class="dot"></span><span>Now: <strong>AI Product Manager at the Gies AI Hub</strong></span></a>
-          <a class="now-pill" href="#bot"><span class="pulse"></span><span>Building: <strong>an automated prediction market bot</strong></span></a>
+        <h1>Hey, I'm Aadarsh.</h1>
+        <div class="intro">
+          <p>I'm a junior at UIUC studying Industrial Engineering, with minors in CS and Business.</p>
+          <p>I've done three internships so far, at <a href="#experience">P&amp;G</a>, <a href="#experience">PortfolioPilot</a>, and <a href="#experience">RPS</a>, across supply chain engineering, product management, and energy strategy.</p>
+          <p>The work I like most sits between product and engineering: figuring out what's worth building, then actually building it.</p>
+          <p class="intro-now">Here's what I'm up to right now:</p>
+          <ul class="now-list">
+            <li>AI Product Manager @ <a href="#gies">Gies AI Hub</a></li>
+            <li>Director of External Relations @ <a href="#leadership">EntreCORPS</a></li>
+            <li>Building a <a href="#bot">bot that trades Kalshi prediction markets</a></li>
+            <li>Recruiting for product and consulting roles</li>
+          </ul>
         </div>
-        <h1>Aadarsh Arun</h1>
-        <p class="hero-tagline">Industrial engineering student at the University of Illinois, recruiting for product and strategy roles. I build things end to end, and I'm upfront about where they still fall short.</p>
         <div class="hero-links">
           <a class="btn btn-primary" href="resume/aadarsh-arun-resume.pdf" target="_blank" rel="noopener">Download resume</a>
           <a class="btn" href="mailto:aadarsh3@illinois.edu">Email</a>
@@ -85,11 +103,58 @@
 
   <section id="about" class="section">
     <div class="wrap">
-      <h2>About</h2>
-      <div class="prose">
-        <p>I'm a junior studying industrial engineering at the University of Illinois at Urbana-Champaign, with minors in computer science and business. I keep a 3.94 GPA and I'm an Edmund James Scholar, a George A. Pagels Fund Scholar, and on the Dean's List (Fall 2025, Spring 2026).</p>
-        <p>Most of what I do sits between product and engineering: figuring out what's actually worth building, then building it. I've done that on a Fortune 500 supply chain team, at an early-stage fintech, now at the Gies AI Hub, and in my own project work below, where I take an idea from a blank folder to something shipped and working.</p>
-      </div>
+      <h2>My story</h2>
+      <ol class="story">
+
+        <li class="chapter">
+          <span class="chapter-when">Freshman year</span>
+          <div class="chapter-body">
+            <p>I came into UIUC as an industrial engineering major without a clear plan. I knew I was interested in a lot of different areas, not just engineering, so I started joining clubs to see what clicked:</p>
+            <ul>
+              <li><a href="#leadership">EntreCORPS</a> (consulting for startups): started as a Consultant, then Project Manager, Senior Manager, and now Director of External Relations</li>
+              <li><a href="#leadership">Phi Chi Theta</a> (professional business fraternity): now Bid Day / Special Events Chair</li>
+            </ul>
+            <p>That's where I got my first real look at consulting and the business side.</p>
+          </div>
+        </li>
+
+        <li class="chapter">
+          <span class="chapter-when">Summer 2025</span>
+          <div class="chapter-body">
+            <p>I didn't have an internship lined up, so I found a spot doing consulting work at <a href="#experience">RPS</a>, mostly research on Illinois energy. It was my first time working directly with a client and a CEO, and I learned a lot about how that relationship actually works.</p>
+          </div>
+        </li>
+
+        <li class="chapter">
+          <span class="chapter-when">Sophomore year</span>
+          <div class="chapter-body">
+            <p>I recruited for pretty much everything, consulting and engineering, because honestly I just wanted a job and a taste of real corporate work. I also joined <a href="#leadership">Product Space</a> as a Product Manager and got into the <a href="#leadership">Illinois Consulting Academy</a>. That spring I was a product intern at <a href="#experience">PortfolioPilot</a>, a fintech startup, which was my first look at how PMs get close to customers and their problems.</p>
+          </div>
+        </li>
+
+        <li class="chapter">
+          <span class="chapter-when">Summer 2026</span>
+          <div class="chapter-body">
+            <p>All that recruiting landed me a product supply engineering internship at <a href="#experience">P&amp;G</a>. I didn't go in knowing P&amp;G was where I wanted to be, but it turned out to be a great fit. I wanted a technical foundation and real ownership, and I got both across four projects:</p>
+            <ul>
+              <li>Building a RAG-based AI assistant for the Air Care business</li>
+              <li>Redesigning a core engineering process</li>
+              <li>Designing a lid-loading automation for manufacturing lines</li>
+              <li>Supply chain modeling for a new packaging launch</li>
+            </ul>
+            <p>Building automations to speed up my own work ended up being my favorite part. I also saw the downside of traditional engineering: a lot of it is pretty far from the newest technology.</p>
+          </div>
+        </li>
+
+        <li class="chapter">
+          <span class="chapter-when">Now</span>
+          <div class="chapter-body">
+            <p>Coming into junior year, that interest in automation turned into a much bigger interest in agentic AI. On my own I build with Claude Code, including an <a href="#assistant">AI executive assistant</a> that helps me manage my calendar, email, classes, and recruiting. My newest project is a <a href="#bot">bot that trades Kalshi prediction markets</a>. I used to do sports investing from an analytical angle, looking for positive-EV and arbitrage spots, and prediction markets felt like a chance to bring that same thinking somewhere new.</p>
+            <p>I still like the business side, working with clients and figuring out ambiguous problems, and I like building things. Product management is where those two meet, so that's what I'm going after now, along with consulting.</p>
+          </div>
+        </li>
+
+      </ol>
     </div>
   </section>
 
@@ -97,7 +162,7 @@
     <div class="wrap">
       <h2>Beyond the resume</h2>
       <div class="prose">
-        <p>Outside of class and work: I'm a lifelong Chicago Bears fan, I play pickleball, and I'm always up for a game of Catan or Codenames. I used to take an analytical look at sports investing markets, focused on positive-EV and arbitrage strategies, and I try to keep a regular lifting schedule. This past year I've also spent a lot of time building side projects on my own, partly for the work below and partly because I like learning a tool well enough to find its edges.</p>
+        <p>Outside of class and work: I'm a lifelong Chicago Bears fan, I play pickleball, and I'm always up for a game of Catan or Codenames. I used to take an analytical look at sports investing markets, focused on positive-EV and arbitrage strategies, and I try to keep a regular lifting schedule.</p>
       </div>
     </div>
   </section>
@@ -166,7 +231,7 @@
   <section id="projects" class="section section-muted">
     <div class="wrap">
       <h2>Projects</h2>
-      <p class="section-lede">What I'm building right now, plus three things I shipped this fall, each with a real result attached, including the ones that didn't go the way I expected.</p>
+      <p class="section-lede">What I'm building right now, the assistant I use every day, plus two things I shipped this fall, each with a real result attached, including the ones that didn't go the way I expected.</p>
 
       <div class="project-grid">
 
@@ -211,6 +276,21 @@
           <p class="project-note">Code is private while it's in development.</p>
         </article>
 
+        <article class="project-card" id="assistant">
+          <h3>AI Executive Assistant</h3>
+          <p class="project-hook">A personal assistant I built in Claude Code to keep recruiting, classes, my job, and side projects from slipping through the cracks.</p>
+          <ul>
+            <li>13 custom skills, including a morning briefing, homework tracking, interview prep, and a weekly planner that lays out my week on Google Calendar around my fixed commitments.</li>
+            <li>Connected to Gmail and Google Calendar, so it pulls application updates from my inbox into a tracker and plans around what's actually on my schedule.</li>
+            <li>The weekly planner runs on its own as a scheduled cloud job every Sunday night.</li>
+            <li>Everything it knows is stored as plain notes that double as an Obsidian vault, so I can browse it.</li>
+          </ul>
+          <div class="project-tags">
+            <span>Claude Code</span><span>MCP</span><span>Gmail + Google Calendar</span><span>Obsidian</span>
+          </div>
+          <p class="project-note">Code is private since it runs on my personal data.</p>
+        </article>
+
         <article class="project-card">
           <h3>AI Internship-Fit Screener</h3>
           <p class="project-hook">An eval harness that checks whether an AI scoring system actually agrees with human judgment, then uses that gap to fix the system.</p>
@@ -245,26 +325,6 @@
           </div>
         </article>
 
-        <article class="project-card">
-          <h3>Crypto Strategy Backtest &amp; Product Brief</h3>
-          <p class="project-hook">A fee-aware backtest of four rule-based crypto strategies, built to answer one question honestly: does automation actually beat just holding?</p>
-          <ul>
-            <li>Backtested buy-and-hold, dollar-cost averaging, a moving-average trend rule, and an RSI reversion rule against 10 years of daily BTC and ETH prices, at three fee levels.</li>
-            <li>Found that fees consumed 34&ndash;55% of the active strategies' pre-fee gains, and that buy-and-hold beat the automated strategies in 5 of 6 strategy-asset pairings.</li>
-            <li>Wrote the results up as a product brief with an MVP scope, success metrics, and a section on the regulatory limits of automated trading advice.</li>
-          </ul>
-          <div class="project-charts">
-            <img src="assets/equity_BTC-USD.svg" alt="Equity curve chart comparing crypto trading strategies on BTC-USD" loading="lazy">
-            <img src="assets/equity_ETH-USD.svg" alt="Equity curve chart comparing crypto trading strategies on ETH-USD" loading="lazy">
-          </div>
-          <div class="project-tags">
-            <span>Python (standard library)</span><span>backtesting</span><span>product strategy</span>
-          </div>
-          <div class="project-links">
-            <a href="https://github.com/aadarsh05-dev/crypto-strategy-lab" target="_blank" rel="noopener">GitHub →</a>
-          </div>
-        </article>
-
       </div>
     </div>
   </section>
@@ -284,7 +344,7 @@
           </div>
           <p>Run 5+ cross-organization and corporate-sponsored programs each semester with product, startup, and consulting groups, reaching 100+ stakeholders and prospective members. Led the firm's move to a Forward Deployment Engagement (FDE) consulting model with a 27-page proposal and a 30-slide executive deck for Gies leadership.</p>
           <p>Before that, as Senior Manager, I directed 2 client projects over 8 weeks and centralized recruiting logistics for 100+ coffee chats across 300+ candidates, cutting turnaround by roughly 20%. As Project Manager, I led a 6-person team that used Gantt planning and competitor analysis to grow a client's market reach by roughly 15%.</p>
-          <p class="leadership-note">Promoted twice in a year: Project Manager (Dec 2024) &rarr; Senior Manager (May 2025) &rarr; Director (Jan 2026).</p>
+          <p class="leadership-note">Promoted three times since joining in August 2024: Consultant (Aug 2024) &rarr; Project Manager (Dec 2024) &rarr; Senior Manager (May 2025) &rarr; Director (Jan 2026).</p>
         </article>
 
         <article class="leadership-card">

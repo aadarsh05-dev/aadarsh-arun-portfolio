@@ -1,5 +1,6 @@
 const navToggle = document.getElementById('navToggle');
 const siteNav = document.getElementById('siteNav');
+const themeToggle = document.getElementById('themeToggle');
 
 navToggle.addEventListener('click', () => {
   const isOpen = siteNav.classList.toggle('open');
@@ -13,20 +14,28 @@ siteNav.querySelectorAll('a').forEach((link) => {
   });
 });
 
-// Fade sections in as they scroll into view. Content stays visible if JS is off.
+// Light/dark toggle. The initial theme is set by the inline script in <head>.
+themeToggle.addEventListener('click', () => {
+  const next = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+  document.documentElement.setAttribute('data-theme', next);
+  try { localStorage.setItem('theme', next); } catch (e) {}
+});
+
+// Underline the nav link for whichever section is currently being read.
 if ('IntersectionObserver' in window) {
-  const targets = document.querySelectorAll('.section h2, .prose, .timeline-item, .project-card, .leadership-card, .skills-group');
+  const links = new Map();
+  siteNav.querySelectorAll('a[href^="#"]').forEach((link) => {
+    const section = document.querySelector(link.getAttribute('href'));
+    if (section) links.set(section, link);
+  });
+
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-        observer.unobserve(entry.target);
-      }
+      if (!entry.isIntersecting) return;
+      siteNav.querySelectorAll('a.active').forEach((a) => a.classList.remove('active'));
+      links.get(entry.target).classList.add('active');
     });
-  }, { threshold: 0.12 });
+  }, { rootMargin: '-45% 0px -50% 0px' });
 
-  targets.forEach((el) => {
-    el.classList.add('reveal');
-    observer.observe(el);
-  });
+  links.forEach((_, section) => observer.observe(section));
 }
